@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movies</string>
+
+    <string name="clientError">Você tem um problema de conexão!</string>
+    <string name="serverError">Tivemos um problema com nosso servidor!</string>
+    <string name="ioError">Sem conexão!</string>
+    <string name="generalError">Tivemos um problema e por isso não conseguimos completar sua requisição</string>
+</resources>
