@@ -4,7 +4,7 @@ Desafio M2Y
 
 ## <br />Tecnologias utilizadas
 1. Coroutines
-2. Coroutines
+2. Dagger
 3. Retrofit
 4. SharedPreferences
 5. Paging 3.0
