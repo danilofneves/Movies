@@ -8,7 +8,7 @@ class Preferences(context: Context) {
         private const val FAVORITE = "FAVORITE"
     }
 
-    val preferences = context.getSharedPreferences("shared", Context.MODE_PRIVATE)
+    private val preferences = context.getSharedPreferences("shared", Context.MODE_PRIVATE)
 
     fun favorite() {
         val edit = preferences.edit()

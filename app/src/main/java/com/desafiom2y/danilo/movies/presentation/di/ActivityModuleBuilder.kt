@@ -21,7 +21,7 @@ import dagger.android.ContributesAndroidInjector
 @Suppress("unused")
 @Module
 abstract class ActivityModuleBuilder {
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector
     abstract fun contributeMainActivity(): MainActivity
 
 }

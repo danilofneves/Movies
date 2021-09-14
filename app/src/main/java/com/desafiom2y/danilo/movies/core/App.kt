@@ -19,7 +19,7 @@ class App : MultiDexApplication(), HasAndroidInjector {
         initDagger()
     }
 
-    fun initDagger() {
+    private fun initDagger() {
         DaggerAppComponent.builder().application(this).build().inject(this)
     }
 

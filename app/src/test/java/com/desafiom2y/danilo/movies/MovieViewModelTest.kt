@@ -2,7 +2,6 @@ package com.desafiom2y.danilo.movies
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.desafiom2y.danilo.movies.core.DTOMovieGenerate
-import com.desafiom2y.danilo.movies.core.DTOMovieSimilarGenerate
 import com.desafiom2y.danilo.movies.core.MainCoroutineRule
 import com.desafiom2y.danilo.movies.core.getOrAwaitValue
 import com.desafiom2y.danilo.movies.domain.usecases.*
@@ -11,10 +10,8 @@ import com.desafiom2y.danilo.movies.data.Resource
 import com.desafiom2y.danilo.movies.data.exception.ResponseError
 import com.desafiom2y.danilo.movies.domain.model.Movie
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.hamcrest.core.Every
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -37,7 +34,6 @@ class MovieViewModelTest {
     private lateinit var getSimilarMovies: GetSimilarMovies
 
     private val testMovieGenerator: DTOMovieGenerate = DTOMovieGenerate()
-    private val testMovieSimilarGenerator: DTOMovieSimilarGenerate = DTOMovieSimilarGenerate()
 
     @Before
     fun setup() {

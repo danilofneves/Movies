@@ -13,10 +13,8 @@ class MoviePagingApiDataSourceRetro @Inject constructor(
     private val movieService: MovieService
 ) : PagingSource<Int,Movie>(){
 
-    private val DEFAULT_PAGE_INDEX= 1
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
-        val page = params.key ?: DEFAULT_PAGE_INDEX
+        val page = params.key ?: DEFAULT_INDEX
         return when (val response = safeCall {
             movieService.getSimilarMovies(page)}) {
             is ResultMovieSimilarResponse -> {
@@ -34,6 +32,10 @@ class MoviePagingApiDataSourceRetro @Inject constructor(
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
         return null
+    }
+
+    companion object {
+        private const val DEFAULT_INDEX= 1
     }
 
 }

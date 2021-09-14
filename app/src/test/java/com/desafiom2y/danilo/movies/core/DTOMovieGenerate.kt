@@ -7,14 +7,14 @@ import com.squareup.moshi.Moshi
 
 class DTOMovieGenerate {
     companion object {
-        private const val REPOURI = "MovieResponse.json"
+        private const val URI = "MovieResponse.json"
     }
     private var result: MovieResponse = MovieResponse()
 
     init {
         val moshi: Moshi = Moshi.Builder().build()
         val adapter: JsonAdapter<MovieResponse> = moshi.adapter(MovieResponse::class.java)
-        val jsonString = getStringJson(REPOURI)
+        val jsonString = getStringJson(URI)
         adapter.fromJson(jsonString)?.let {
             result = it
         }

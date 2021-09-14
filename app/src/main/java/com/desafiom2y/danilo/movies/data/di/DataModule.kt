@@ -4,8 +4,8 @@ package com.desafiom2y.danilo.movies.data.di
 import android.content.Context
 import com.desafiom2y.danilo.movies.core.ConfigAPI.API_TOKEN
 import com.desafiom2y.danilo.movies.core.ConfigAPI.BASE_URL
-import com.desafiom2y.danilo.movies.core.ConfigAPI.TIMECONNECT
-import com.desafiom2y.danilo.movies.core.ConfigAPI.TIMEREAD
+import com.desafiom2y.danilo.movies.core.ConfigAPI.TIME_CONNECT
+import com.desafiom2y.danilo.movies.core.ConfigAPI.TIME_READ
 import com.desafiom2y.danilo.movies.data.local.datasource.Preferences
 import com.desafiom2y.danilo.movies.data.local.datasource.SharedDataSource
 import com.desafiom2y.danilo.movies.data.local.datasource.SharedDataSourceImpl
@@ -27,8 +27,6 @@ import javax.inject.Singleton
 @Module
 class DataModule {
 
-
-
     @Provides
     fun provideIntercept(): Interceptor{
         return Interceptor { chain ->
@@ -41,8 +39,8 @@ class DataModule {
     @Provides
     fun provideOkHttpBuilder(auth: Interceptor): OkHttpClient {
         return OkHttpClient.Builder()
-                .connectTimeout(TIMECONNECT.toLong(), TimeUnit.SECONDS)
-                .readTimeout(TIMEREAD.toLong(), TimeUnit.SECONDS)
+                .connectTimeout(TIME_CONNECT.toLong(), TimeUnit.SECONDS)
+                .readTimeout(TIME_READ.toLong(), TimeUnit.SECONDS)
                 .addInterceptor(auth)
                 .build()
     }
@@ -74,14 +72,14 @@ class DataModule {
     @Singleton
     @Provides
     fun provideMovieApiDataSource(
-            movieservice: MovieService
-    ): MovieApiDataSource = MovieApiDataSourceRetro(movieservice)
+            movieService: MovieService
+    ): MovieApiDataSource = MovieApiDataSourceRetro(movieService)
 
     @Singleton
     @Provides
     fun provideMoviePagingApiDataSource(
-        movieservice: MovieService
-    ): MoviePagingApiDataSourceRetro = MoviePagingApiDataSourceRetro(movieservice)
+        movieService: MovieService
+    ): MoviePagingApiDataSourceRetro = MoviePagingApiDataSourceRetro(movieService)
 
     @Singleton
     @Provides

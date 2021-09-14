@@ -1,7 +1,5 @@
 package com.desafiom2y.danilo.movies.domain.model
 
-import java.util.*
-
 data class Movie (
     val id: Long,
     val title: String,

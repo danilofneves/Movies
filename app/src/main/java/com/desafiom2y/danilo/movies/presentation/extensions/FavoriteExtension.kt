@@ -7,6 +7,6 @@ fun ActivityMainBinding.favorite(){
     this.ivFavorite.setImageResource(R.drawable.favorite_full_24)
 }
 
-fun ActivityMainBinding.disfavorite(){
+fun ActivityMainBinding.disfavor(){
     this.ivFavorite.setImageResource(R.drawable.favorite_empty_24)
 }

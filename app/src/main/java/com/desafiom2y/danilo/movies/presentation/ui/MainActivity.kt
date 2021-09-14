@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val progressDialog by lazy { createProgressDialog() }
     private lateinit var binding: ActivityMainBinding
     private val moviesSimilarListAdapter by lazy { MovieSimilarListAdapter()}
-    private var vote_count = 0
+    private var voteCount = 0
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -62,15 +62,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMovieDetail(movie: Movie){
-        vote_count = movie.vote_count
+        voteCount = movie.vote_count
         if(viewModel.isFavorite()){
             binding.favorite()
-            vote_count++
+            voteCount++
         }else {
-            binding.disfavorite()
+            binding.disfavor()
         }
         binding.tvMovieNameLg.text = movie.title
-        binding.tvMovieFavoriteCount.text = vote_count.toString()
+        binding.tvMovieFavoriteCount.text = voteCount.toString()
         binding.tvMoviePopularityCount.text = movie.popularity.toString()
         Glide.with(binding.root.context)
             .load(movie.poster_path)
@@ -82,16 +82,16 @@ class MainActivity : AppCompatActivity() {
     private fun setupListener(){
         binding.ivFavorite.setOnClickListener {
             if(viewModel.isFavorite()){
-                binding.disfavorite()
-                viewModel.disfavorite()
-                vote_count--
-                binding.tvMovieFavoriteCount.text = vote_count.toString()
+                binding.disfavor()
+                viewModel.disfavor()
+                voteCount--
+                binding.tvMovieFavoriteCount.text = voteCount.toString()
             }
             else{
                 binding.favorite()
                 viewModel.favorite()
-                vote_count++
-                binding.tvMovieFavoriteCount.text = vote_count.toString()
+                voteCount++
+                binding.tvMovieFavoriteCount.text = voteCount.toString()
             }
         }
     }

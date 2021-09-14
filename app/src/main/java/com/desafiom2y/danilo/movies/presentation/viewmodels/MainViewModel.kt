@@ -32,7 +32,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun favorite() = favoriteMovie()
-    fun disfavorite() = disfavorMovie()
+    fun disfavor() = disfavorMovie()
     fun isFavorite():Boolean = isFavoriteMovie()
 
     suspend fun moviesSimilarPaging() = getSimilarMovies.invoke().cachedIn(viewModelScope)

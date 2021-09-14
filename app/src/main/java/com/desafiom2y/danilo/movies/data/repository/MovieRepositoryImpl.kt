@@ -42,15 +42,15 @@ class MovieRepositoryImpl @Inject constructor (
         val genres = movieApiDataSource.getAllGenres()
         return Pager(config = PagingConfig(pageSize = PAGE_SIZE)) {
             moviePagingApiDataSourceRetro
-        }.flow.map { it.setGener(genres.data)}
+        }.flow.map { it.setGenre(genres.data)}
     }
 
-    private fun PagingData<Movie>.setGener(list: List<Genre>?):PagingData<Movie>{
+    private fun PagingData<Movie>.setGenre(list: List<Genre>?):PagingData<Movie>{
         return if (list == null) this
         else this.map { movies ->
                 list.forEach { genre ->
-                    movies.genres.find { movieGener ->
-                        movieGener.id == genre.id
+                    movies.genres.find { movieGenre ->
+                        movieGenre.id == genre.id
                     }?.name = genre.name
                 }
                 movies
